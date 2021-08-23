@@ -24,4 +24,3 @@ integration:
   WITH DOCKER --compose /app/docker-compose.yml --load test:latest=+integration-container
     RUN sleep 5 && docker run --rm --network test-network --network-alias integration-container -P test
   END
-  RUN false
