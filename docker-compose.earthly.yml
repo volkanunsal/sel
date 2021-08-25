@@ -11,10 +11,6 @@ services:
     volumes:
       - /dev/shm:/dev/shm
     shm_size: "2gb"
-  integration:
-    build: .
-    links:
-      - selenium
 
 networks:
   default:
