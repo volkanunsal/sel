@@ -4,6 +4,14 @@ This is a minimal reproduction of an issue we're having in Selenium containers.
 
 # Getting Started
 
+## Using Docker Compose
+
+```
+docker-compose run integration
+```
+
+## Using Earthly
+
 * Install [Earthly](https://earthly.dev/)
 * Run 
 
