@@ -11,9 +11,18 @@ services:
     volumes:
       - /dev/shm:/dev/shm
     shm_size: "2gb"
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl --silent --fail -X HEAD http://localhost:4444/wd/hub",
+        ]
+      interval: 2s
+      timeout: 5s
+      retries: 30
   integration:
     build: .
-    links:
+    depends_on:
       - selenium
 
 networks:
