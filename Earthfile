@@ -22,5 +22,5 @@ integration:
   FROM earthly/dind:alpine
   COPY ./docker-compose.yml /app/
   WITH DOCKER --compose /app/docker-compose.yml --load test:latest=+integration-container
-    RUN sleep 5 && docker run --rm --network test-network --network-alias integration-container -P test
+    RUN docker run --rm --network test-network --network-alias integration-container -P test
   END

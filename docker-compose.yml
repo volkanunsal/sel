@@ -10,6 +10,11 @@ services:
       - JAVA_OPTS=-Dwebdriver.chrome.whitelistedIps=
     volumes:
       - /dev/shm:/dev/shm
+  integration:
+    build: .
+    links:
+      - selenium
+
 networks:
   default:
     name: test-network
