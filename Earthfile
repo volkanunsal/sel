@@ -20,7 +20,7 @@ integration-container:
 
 integration:
   FROM earthly/dind:alpine
-  COPY ./docker-compose.yml /app/
+  COPY ./docker-compose.earthly.yml /app/
   WITH DOCKER --compose /app/docker-compose.earthly.yml --load test:latest=+integration-container
     RUN docker run --rm --network test-network --network-alias integration-container -P test
   END
