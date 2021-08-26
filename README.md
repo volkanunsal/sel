@@ -7,7 +7,7 @@ This is a minimal reproduction of an issue we're having in Selenium containers.
 ## Using Docker Compose
 
 ```
-docker-compose -f compose.amd64.yml run integration
+./run_docker.sh
 ```
 
 ## Using Earthly
@@ -16,16 +16,12 @@ docker-compose -f compose.amd64.yml run integration
 * Run 
 
 ```
-earthly -P -i --use-inline-cache +integration
+./run_earthly.sh
 ```
 
 # Error messages
 
 ```
-+integration | [remote server] sun.reflect.NativeConstructorAccessorImpl(NativeConstructorAccessorImpl.java):-2:in `newInstance0': unknown error: Chrome failed to start: crashed. (Selenium::WebDriver::Error::UnknownError)
-        +integration |   (unknown error: DevToolsActivePort file doesn't exist)
-        +integration |   (The process started from chrome location /usr/bin/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
-        +integration | Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
-        +integration | System info: host: '131d48748013', ip: '172.21.0.2', os.name: 'Linux', os.arch: 'amd64', os.version: '5.10.25-linuxkit', java.version: '1.8.0_292'
-        +integration | Driver info: driver.version: unknown
+#0 0x55e58010fa63 <unknown>: unknown error: net::ERR_CONNECTION_REFUSED (Selenium::WebDriver::Error::UnknownError)
+  (Session info: headless chrome=92.0.4515.107)
 ```
