@@ -14,7 +14,7 @@ driver = Selenium::WebDriver.for :remote, url: ENV['SELENIUM_REMOTE_URL'], desir
 driver.navigate.to ENV['APP_HOST']
 element = driver.find_element(tag_name: 'body')
 
-logger = Rackstash::Logger.new('app.log')
-logger.info element.text
+# logger = Rackstash::Logger.new('app.log')
+# logger.info element.text
 
 driver.quit
