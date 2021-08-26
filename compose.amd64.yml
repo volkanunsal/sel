@@ -22,6 +22,8 @@ services:
       retries: 30
   integration:
     container_name: integration
+    ports:
+      - 50190
     build: .
     depends_on:
       - selenium

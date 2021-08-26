@@ -23,6 +23,8 @@ services:
   integration:
     container_name: integration
     build: .
+    ports:
+      - 50190
     depends_on:
       - selenium
 
