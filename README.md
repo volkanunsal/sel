@@ -7,7 +7,7 @@ This is a minimal reproduction of an issue we're having in Selenium containers.
 ## Using Docker Compose
 
 ```
-docker-compose run integration
+docker-compose -f compose.amd64.yml run integration
 ```
 
 ## Using Earthly

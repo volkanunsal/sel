@@ -2,6 +2,8 @@ FROM ruby:2.5-alpine3.10
 
 WORKDIR /app
 
+ARG SCOPE=amd64
+
 demo-rb:
   COPY ./Gemfile /app
   RUN bundle
@@ -20,7 +22,7 @@ host:
 
 integration:
   FROM earthly/dind:alpine
-  COPY ./docker-compose.earthly.yml /app/
-  WITH DOCKER --compose /app/docker-compose.earthly.yml --load test:latest=+host
+  COPY ./earthly.$SCOPE.yml /app/
+  WITH DOCKER --compose /app/earthly.$SCOPE.yml --load test:latest=+host
     RUN docker run --rm --network test-network --network-alias host -P test
   END

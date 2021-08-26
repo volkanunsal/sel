@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  selenium:
+    container_name: selenium
+    image: selenium/standalone-chrome:latest
+    ports:
+      - "4444:4444"
+    environment:
+      - JAVA_OPTS=-Dwebdriver.chrome.whitelistedIps=
+    volumes:
+      - /dev/shm:/dev/shm
+    shm_size: "2gb"
+    
+networks:
+  default:
+    name: test-network
