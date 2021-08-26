@@ -21,6 +21,7 @@ services:
       timeout: 5s
       retries: 30
   integration:
+    container_name: integration
     build: .
     depends_on:
       - selenium
